@@ -14,5 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('client.pages.home');
+});
+Route::get('/shop', function () {
+    return view('client.pages.shop');
+});
+Route::get('/product', function () {
+    return view('client.pages.product-detail');
+});
+Route::get('/cart', function () {
+    return view('client.pages.cart');
+});
+Route::get('/admin', function () {
+    return view('admin.pages.dashboard');
+});
+Route::get('/admin/categories', function () {
+    return view('admin.pages.categories');
 });
