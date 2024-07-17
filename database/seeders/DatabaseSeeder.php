@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             UserCouponsSeeder::class,
             CommentsSeeder::class,
             AdminsSeeder::class,
+            UsersSeeder::class
         ]);
     }
 }

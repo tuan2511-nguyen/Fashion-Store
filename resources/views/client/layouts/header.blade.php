@@ -58,55 +58,10 @@
                                 <ul>
                                     <li><a href="about.html">About</a></li>
                                     <li><a href="blog_details.html">Blog Details</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
+                                    <li><a href="/cart">Cart</a></li>
+                                    <li><a href="/checkout">Checkout</a></li>
                                     <li><a href="success.html">Success</a></li>
                                     <li><a href="wishlist.html">Wishlist</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children cs_mega_menu">
-                                <a href="">MegaMenu</a>
-                                <ul class="cs_mega_wrapper">
-                                    <li class="menu-item-has-children">
-                                        <a href="">Category One</a>
-                                        <ul>
-                                            <li><a href="shop.html">Women's Clothing</a></li>
-                                            <li><a href="shop.html">Men's Clothing</a></li>
-                                            <li><a href="shop.html">Kids' Clothing</a></li>
-                                            <li><a href="shop.html">Shoes (Men, Women, Kids)</a></li>
-                                            <li><a href="shop.html">Accessories (e.g., hats, scarves)</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="">Category Two</a>
-                                        <ul>
-                                            <li><a href="shop.html">Activewear</a></li>
-                                            <li><a href="shop.html">Formal Wear</a></li>
-                                            <li><a href="shop.html">Casual Wear</a></li>
-                                            <li><a href="shop.html">Outerwear (Jackets, Coats)</a></li>
-                                            <li><a href="shop.html">Swimwear</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="">Category Three</a>
-                                        <ul>
-                                            <li><a href="shop.html">Lingerie and Sleepwear</a></li>
-                                            <li><a href="shop.html">Maternity Wear</a></li>
-                                            <li><a href="shop.html">Plus Size Clothing</a></li>
-                                            <li><a href="shop.html">Sustainable Fashion</a></li>
-                                            <li><a href="shop.html">Vintage/Second-hand Clothing</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="">Category Four</a>
-                                        <ul>
-                                            <li><a href="shop.html">Sports Apparel</a></li>
-                                            <li><a href="shop.html">Workwear</a></li>
-                                            <li><a href="shop.html">Designer Clothing</a></li>
-                                            <li><a href="shop.html">Seasonal Collections</a></li>
-                                            <li><a href="shop.html">Costumes and Cosplay</a></li>
-                                        </ul>
-                                    </li>
                                 </ul>
                             </li>
                             <li><a href="contact.html">Contact</a></li>

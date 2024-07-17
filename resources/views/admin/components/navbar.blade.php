@@ -16,7 +16,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item hidden-on-mobile">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i
+                            <a class="nav-link" href="{{route('auth.logout')}}"><i
                                     class="material-icons">logout</i>Logout</a>
                         </li>
                     </li>

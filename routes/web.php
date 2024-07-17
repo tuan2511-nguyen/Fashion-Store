@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\AuthenticateMiddleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +27,13 @@ Route::get('/product', function () {
 Route::get('/cart', function () {
     return view('client.pages.cart');
 });
-Route::get('/admin', function () {
-    return view('admin.pages.dashboard');
+Route::get('/checkout', function () {
+    return view('client.pages.checkout');
 });
-Route::get('/admin/categories', function () {
-    return view('admin.pages.categories');
-});
+
+
+Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard.index')->middleware(AuthenticateMiddleware::class);
+
+Route::get('admin',[AuthController::class,'index'])->name('auth.admin');
+Route::get('logout',[AuthController::class,'logout'])->name('auth.logout');
+Route::post('login',[AuthController::class,'login'])->name('auth.login');

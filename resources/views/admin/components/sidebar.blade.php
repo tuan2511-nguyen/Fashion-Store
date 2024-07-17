@@ -15,7 +15,7 @@
                 Apps
             </li>
             <li class="active-page">
-                <a href="index.html"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
+                <a href="{{ route('dashboard.index') }}"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
             </li>
             <li>
                 <a href="/admin/categories"><i class="material-icons-two-tone">category</i>Categories
@@ -33,7 +33,7 @@
                             <li>
                                 <a href="sign-in.html">Colors</a>
                             </li>
-                            <li>
+                            <li>s
                                 <a href="sign-up.html">Sizes</a>
                             </li>
                         </ul>
