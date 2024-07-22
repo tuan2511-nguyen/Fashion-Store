@@ -1,0 +1,8 @@
+<?php
+
+namespace App\Services;
+
+class {{name}} implements {{name}}Interface
+{
+    // Your service methods
+}

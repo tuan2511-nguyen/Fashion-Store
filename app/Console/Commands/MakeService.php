@@ -3,50 +3,65 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
+use Illuminate\Filesystem\Filesystem;
+
 class MakeService extends Command
 {
-    protected $signature = 'make:service {name}';
+    protected $signature = 'make:service {name} {--i}';
+
     protected $description = 'Create a new service class';
 
-    public function __construct()
+    protected $files;
+
+    public function __construct(Filesystem $files)
     {
         parent::__construct();
+        $this->files = $files;
     }
 
     public function handle()
     {
         $name = $this->argument('name');
-        $path = app_path("Services/{$name}.php");
+        $interfaceFlag = $this->option('i');
 
-        if (File::exists($path)) {
-            $this->error("Service {$name} already exists!");
-            return false;
+        $this->createService($name);
+
+        if ($interfaceFlag) {
+            $this->createInterface($name);
+        }
+    }
+
+    protected function createService($name)
+    {
+        $path = app_path("Services/{$name}Service.php");
+
+        if ($this->files->exists($path)) {
+            $this->error("Service {$name}Service already exists!");
+            return;
         }
 
-        File::ensureDirectoryExists(dirname($path));
+        $stub = $this->files->get(__DIR__ . '/stubs/service.stub');
+        $stub = str_replace('{{name}}', $name, $stub);
 
-        File::put($path, $this->getStub($name));
+        $this->files->put($path, $stub);
 
-        $this->info("Service {$name} created successfully.");
+        $this->info("Service {$name}Service created successfully.");
     }
 
-    protected function getStub($name)
+    protected function createInterface($name)
     {
-        return <<<EOT
-<?php
+        $path = app_path("Services/Interfaces/{$name}ServiceInterface.php");
 
-namespace App\Services;
+        if ($this->files->exists($path)) {
+            $this->error("Interface {$name}ServiceInterface already exists!");
+            return;
+        }
 
-class {$name}
-{
-    public function __construct()
-    {
-        // Constructor logic
-    }
+        $stub = $this->files->get(__DIR__ . '/stubs/interface.stub');
+        $stub = str_replace('{{name}}', $name, $stub);
 
-    // Add your methods here
-}
-EOT;
+        $this->files->put($path, $stub);
+
+        $this->info("Interface {$name}ServiceInterface created successfully.");
     }
 }

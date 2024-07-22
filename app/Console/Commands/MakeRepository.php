@@ -3,51 +3,65 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
+use Illuminate\Filesystem\Filesystem;
 
 class MakeRepository extends Command
 {
-    protected $signature = 'make:repository {name}';
-    protected $description = 'Create a new repository class';
+    protected $signature = 'make:repository {name} {--i}';
 
-    public function __construct()
+    protected $description = 'Create a new repository class and optionally an interface';
+
+    protected $files;
+
+    public function __construct(Filesystem $files)
     {
         parent::__construct();
+        $this->files = $files;
     }
 
     public function handle()
     {
         $name = $this->argument('name');
+        $interfaceFlag = $this->option('i');
+
+        $this->createRepository($name);
+
+        if ($interfaceFlag) {
+            $this->createInterface($name);
+        }
+    }
+
+    protected function createRepository($name)
+    {
         $path = app_path("Repositories/{$name}.php");
 
-        if (File::exists($path)) {
+        if ($this->files->exists($path)) {
             $this->error("Repository {$name} already exists!");
-            return false;
+            return;
         }
 
-        File::ensureDirectoryExists(dirname($path));
+        $stub = $this->files->get(__DIR__ . '/stubs/repository.stub');
+        $stub = str_replace('{{name}}', $name, $stub);
 
-        File::put($path, $this->getStub($name));
+        $this->files->put($path, $stub);
 
         $this->info("Repository {$name} created successfully.");
     }
 
-    protected function getStub($name)
+    protected function createInterface($name)
     {
-        return <<<EOT
-<?php
+        $path = app_path("Repositories/Interfaces/{$name}Interface.php");
 
-namespace App\Repositories;
+        if ($this->files->exists($path)) {
+            $this->error("Interface {$name}Interface already exists!");
+            return;
+        }
 
-class {$name}
-{
-    public function __construct()
-    {
-        // Constructor logic
-    }
+        $stub = $this->files->get(__DIR__ . '/stubs/interface.stub');
+        $stub = str_replace('{{name}}', $name, $stub);
 
-    // Add your methods here
-}
-EOT;
+        $this->files->put($path, $stub);
+
+        $this->info("Interface {$name}Interface created successfully.");
     }
 }

@@ -1,9 +1,12 @@
 <?php
 
+
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthenticateMiddleware;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,8 +35,17 @@ Route::get('/checkout', function () {
 });
 
 
-Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard.index')->middleware(AuthenticateMiddleware::class);
+Route::get('dashboard',                             [DashboardController::class, 'index'])->name('dashboard.index')->middleware(AuthenticateMiddleware::class);
 
-Route::get('admin',[AuthController::class,'index'])->name('auth.admin');
-Route::get('logout',[AuthController::class,'logout'])->name('auth.logout');
-Route::post('login',[AuthController::class,'login'])->name('auth.login');
+Route::get('admin',                                 [AuthController::class, 'index'])->name('auth.admin');
+Route::get('logout',                                [AuthController::class, 'logout'])->name('auth.logout');
+Route::post('login',                                [AuthController::class, 'login'])->name('auth.login');
+
+Route::prefix('admin')->group(function () {
+    Route::resource('categories', CategoryController::class)->except([
+        'show'
+    ]);
+    Route::get('categories/trash',                  [CategoryController::class, 'trashed'])->name('categories.trashed');
+    Route::post('categories/{id}/restore',          [CategoryController::class, 'restore'])->name('categories.restore');
+    Route::delete('categories/{id}/force-delete',   [CategoryController::class, 'forceDelete'])->name('categories.forceDelete');
+});

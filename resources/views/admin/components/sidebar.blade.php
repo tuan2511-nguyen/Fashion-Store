@@ -18,7 +18,7 @@
                 <a href="{{ route('dashboard.index') }}"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
             </li>
             <li>
-                <a href="/admin/categories"><i class="material-icons-two-tone">category</i>Categories
+                <a href="{{ route('categories.index') }}"><i class="material-icons-two-tone">category</i>Categories
                     {{-- <span
                         class="badge rounded-pill badge-danger float-end">87</span> --}}
                 </a>
@@ -33,7 +33,7 @@
                             <li>
                                 <a href="sign-in.html">Colors</a>
                             </li>
-                            <li>s
+                            <li>
                                 <a href="sign-up.html">Sizes</a>
                             </li>
                         </ul>

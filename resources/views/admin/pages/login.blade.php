@@ -68,7 +68,7 @@
                     <label for="signInPassword" class="form-label mt-2">Password</label>
                     <input type="password" class="form-control" id="signInPassword" aria-describedby="signInPassword"
                         name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
-                    @if ($errors->has('email'))
+                    @if ($errors->has('password'))
                         <span class="text-danger">{{ $errors->first('password') }}</span>
                     @endif
                 </div>

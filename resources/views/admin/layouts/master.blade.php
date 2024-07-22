@@ -68,6 +68,8 @@
     <script src="{{ asset('assets/Admin/plugins/highlight/highlight.pack.js') }}"></script>
     <script src="{{ asset('assets/Admin/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/Admin/js/pages/datatables.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </body>
 
