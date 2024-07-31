@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddCategoryRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class AddCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category_name' => 'required, ',
+            'email' => 'required|email',
+            'password' => 'required'
+        ];
+    }
+
+    public function messages(): array{
+        return [
+            'email.required' => 'Yêu cầu nhập email',
+            'email.email' => 'Email phải đúng định dạng',
+            'password.required' => 'Yêu cầu nhập mật khẩu',
         ];
     }
 }

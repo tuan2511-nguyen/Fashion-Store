@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id'); // Primary key
-            $table->unsignedBigInteger('customer_id'); // Foreign key
+            $table->unsignedBigInteger('user_id'); // Foreign key
             $table->date('order_date');
             $table->decimal('total_amount', 10, 2);
             $table->string('billing_name');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamps();
             
             // Setting up foreign key constraint
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

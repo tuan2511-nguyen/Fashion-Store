@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
     ];
@@ -42,4 +43,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
+        // Nếu bạn lưu vai trò dưới dạng danh sách hoặc nhiều vai trò
+        // return in_array($role, explode(',', $this->roles));
+    }
 }

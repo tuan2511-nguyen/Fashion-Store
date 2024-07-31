@@ -88,615 +88,70 @@
                         </div>
                     </div>
                     <div class="cs_product_grid cs_product_grid_3 cs_grid_view">
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product1.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">
-                                        -25%
-                                    </div>
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Pure black cotton men T-shirt</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
+                        @foreach ($products as $product)
+                            <div class="cs_product_col">
+                                <div class="cs_product cs_style_1">
+                                    <div class="cs_product_thumb position-relative">
+                                        <img src="{{ $product->images->isNotEmpty() ? Storage::url($product->images->first()->image_url) : 'default-image.jpg' }}"
+                                            alt="Product Image" class="w-100" />
+                                        <div
+                                            class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">
+                                            -25%
                                         </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
+                                        <div class="cs_cart_badge position-absolute">
+                                            </a>
+                                            <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
+                                                <i class="fa-regular fa-eye"></i>
+                                            </a>
+                                        </div>
+                                        <a href="cart.html"
+                                            class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
+                                            To Cart</a>
                                     </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $250.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add to
-                                            Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
+                                    <div class="cs_product_info text-center">
+                                        <h3 class="cs_product_title cs_fs_21 cs_medium">
+                                            <a
+                                                href="{{ route('product.detail', $product->id) }}">{{ $product->product_name }}</a>
+                                        </h3>
+                                        <div class="cs_single_product_review">
+                                            <div class="cs_rating_container">
+                                                <div class="cs_rating cs_size_sm" data-rating="4.5">
+                                                    <div class="cs_rating_percentage"></div>
+                                                </div>
+                                            </div>
+                                            <span>(5)</span>
+                                            <span>Stock:
+                                                @if ($product->variants->isNotEmpty())
+                                                    <span
+                                                        class="cs_accent_color">{{ $product->variants->first()->stock_quantity }}</span>
+                                                @else
+                                                    <span class="cs_accent_color">Not available</span>
+                                                @endif
+                                            </span>
+                                        </div>
+                                        @if ($product->variants->isNotEmpty())
+                                            <p class="card-text"><strong>Price:</strong>
+                                                {{ number_format($product->variants->first()->price, 0, ',', '.') }}
+                                                VND</p>
+                                        @else
+                                            <p class="card-text"><strong>Price:</strong> Not available</p>
+                                        @endif
+                                        <p class="cs_product_desc">
+                                            {{ $product->product_description }}
+                                        </p>
+                                        <div class="cs_action_btns">
+                                            <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
+                                                to
+                                                Cart</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product2.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">
-                                        -8%
-                                    </div>
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Gray color cotton men T-shirt</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $220.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product3.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">
-                                        -12%
-                                    </div>
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Gray color cotton women T-shirt</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $350.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product26.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">
-                                        -12%
-                                    </div>
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
-                                        Add To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Men casual check shirt</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $350.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product4.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Pure black cotton men T-shirt</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $250.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product5.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Satin silk sleeping were</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $220.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product6.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Top gorgeous woman dress</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $550.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product7.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Velvet touch women tops</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $750.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product27.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Pretty woman peach long dress</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $290.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product16.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">
-                                        -8%
-                                    </div>
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Gray color cotton men T-shirt</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $340.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product28.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Young woman pink mini dress</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $190.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs_product_col">
-                            <div class="cs_product cs_style_1">
-                                <div class="cs_product_thumb position-relative">
-                                    <img src="{{ asset('assets/Client/img/product3.png')}}" alt="Product Image" class="w-100" />
-                                    <div class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">
-                                        -12%
-                                    </div>
-                                    <div class="cs_cart_badge position-absolute">
-                                        <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                        <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                            <i class="fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <a href="cart.html"
-                                        class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                        To Cart</a>
-                                </div>
-                                <div class="cs_product_info text-center">
-                                    <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                        <a href="/product">Pure black cotton men T-shirt</a>
-                                    </h3>
-                                    <div class="cs_single_product_review">
-                                        <div class="cs_rating_container">
-                                            <div class="cs_rating cs_size_sm" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
-                                            </div>
-                                        </div>
-                                        <span>(5)</span>
-                                        <span>Stock:
-                                            <span class="cs_accent_color">12 in stock</span></span>
-                                    </div>
-                                    <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">
-                                        $250.00
-                                    </p>
-                                    <p class="cs_product_desc">
-                                        Our men black t-shirt offers a classic fit and is made
-                                        from high-quality pure cotton <br />materials to keep you
-                                        feeling and looking great.
-                                    </p>
-                                    <div class="cs_action_btns">
-                                        <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                            to Cart</a>
-                                        <button class="cs_heart_btn">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="cs_height_75 cs_height_lg_50"></div>
                     <ul class="cs_pagination cs_fs_21 cs_semibold cs_mp0">
-                        <li class="cs_page_item active">
-                            <a class="cs_page_link" href="#">01</a>
-                        </li>
-                        <li class="cs_page_item">
-                            <a class="cs_page_link" href="#">02</a>
-                        </li>
-                        <li class="cs_page_item">
-                            <a class="cs_page_link" href="#">03</a>
-                        </li>
-                        <li class="cs_page_item">
-                            <a class="cs_page_link" href="#"><i class="fa-solid fa-arrow-right"></i></a>
-                        </li>
+                        {{ $products->links() }}
                     </ul>
                 </div>
                 <!-- .col -->

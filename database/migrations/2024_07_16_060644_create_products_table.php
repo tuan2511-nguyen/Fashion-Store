@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('category_id'); // Foreign key
             $table->timestamps();
             
-            // Setting up the foreign key constraint
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->softDeletes();
         });

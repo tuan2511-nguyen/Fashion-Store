@@ -6,84 +6,14 @@
                 Categories <span></span>
             </h3>
             <ul class="cs_filter_category cs_mp0">
+                @foreach ($categories as $category)
                 <li>
                     <div class="cs_custom_check">
-                        <input type="checkbox" name="categories[]" value="women" />
-                        <label>Women (20)</label>
+                        <input type="checkbox" name="categories[]" value="{{ $category->id }}" />
+                        <label>{{ $category->category_name }}</label>
                     </div>
-                    <ul>
-                        <li>
-                            <div class="cs_custom_check">
-                                <input type="checkbox" name="subcategories[]" value="dresses" />
-                                <label>Dresses (5)</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="cs_custom_check">
-                                <input type="checkbox" name="subcategories[]" value="tops" />
-                                <label>Tops (7)</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="cs_custom_check">
-                                <input type="checkbox" name="subcategories[]" value="jeans" />
-                                <label>Jeans (8)</label>
-                            </div>
-                        </li>
-                    </ul>
                 </li>
-                <li>
-                    <div class="cs_custom_check">
-                        <input type="checkbox" name="categories[]" value="men" />
-                        <label>Men (25)</label>
-                    </div>
-                    <ul>
-                        <li>
-                            <div class="cs_custom_check">
-                                <input type="checkbox" name="subcategories[]" value="t-shirt" />
-                                <label>T - Shirt (5)</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="cs_custom_check">
-                                <input type="checkbox" name="subcategories[]" value="jeans" />
-                                <label>Jeans (7)</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="cs_custom_check">
-                                <input type="checkbox" name="subcategories[]" value="suits" />
-                                <label>Suits (8)</label>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="cs_custom_check">
-                        <input type="checkbox" name="categories[]" value="children" />
-                        <label>Children (25)</label>
-                    </div>
-                    <ul>
-                        <li>
-                            <div class="cs_custom_check">
-                                <input type="checkbox" name="subcategories[]" value="shirts" />
-                                <label>Shirts (5)</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="cs_custom_check">
-                                <input type="checkbox" name="subcategories[]" value="pants" />
-                                <label>Pants (7)</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="cs_custom_check">
-                                <input type="checkbox" name="subcategories[]" value="jeans" />
-                                <label>Jeans (8)</label>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
+                @endforeach
             </ul>
         </div>
         <!-- .cs_filter_widget -->
@@ -108,34 +38,15 @@
                 Color <span></span>
             </h3>
             <ul class="cs_color_filter_list cs_mp0">
+                @foreach ($colors as $color)
                 <li>
                     <div class="cs_color_filter">
-                        <input type="radio" name="color" value="red" />
-                        <span class="cs_color_filter_circle cs_accent_bg"></span>
-                        <span class="cs_color_text">Red</span>
+                        <input type="radio" name="color" value="{{ $color->color_name }}" />
+                        <span class="cs_color_filter_circle" style="background-color: {{ $color->color }}"></span>
+                        <span class="cs_color_text">{{ $color->color_name }}</span>
                     </div>
                 </li>
-                <li>
-                    <div class="cs_color_filter">
-                        <input type="radio" name="color" value="gray" />
-                        <span class="cs_color_filter_circle cs_secondary_bg"></span>
-                        <span class="cs_color_text">Gray</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="cs_color_filter">
-                        <input type="radio" name="color" value="black" />
-                        <span class="cs_color_filter_circle cs_primary_bg"></span>
-                        <span class="cs_color_text">Black</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="cs_color_filter">
-                        <input type="radio" name="color" value="white" />
-                        <span class="cs_color_filter_circle cs_white_bg"></span>
-                        <span class="cs_color_text">White</span>
-                    </div>
-                </li>
+                @endforeach
             </ul>
         </div>
         <div class="cs_filter_widget">
@@ -143,25 +54,15 @@
                 Size <span></span>
             </h3>
             <ul class="cs_size_filter_list cs_mp0">
+                @foreach ($sizes as $size)
                 <li>
-                    <input type="radio" name="size" value="S" />
-                    <span>S</span>
+                    <input type="radio" name="size" value="{{ $size->size_name }}" />
+                    <span>{{ $size->size_name }}</span>
                 </li>
-                <li>
-                    <input type="radio" name="size" value="M" />
-                    <span>M</span>
-                </li>
-                <li>
-                    <input type="radio" name="size" value="L" />
-                    <span>L</span>
-                </li>
-                <li>
-                    <input type="radio" name="size" value="XL" />
-                    <span>XL</span>
-                </li>
+                @endforeach
             </ul>
         </div>
-        <div class="cs_filter_widget">
+        {{-- <div class="cs_filter_widget">
             <h3 class="cs_filter_widget_title cs_medium cs_fs_18">
                 Brand <span></span>
             </h3>
@@ -199,7 +100,7 @@
                     <span>Wisete</span>
                 </li>
             </ul>
-        </div>
+        </div> --}}
         <div class="cs_filter_widget">
             <h3 class="cs_filter_widget_title cs_medium cs_fs_18">
                 Customer Rating <span></span>

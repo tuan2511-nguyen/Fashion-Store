@@ -40,30 +40,19 @@
             <div class="cs_main_header_in">
                 <div class="cs_main_header_left">
                     <a class="cs_site_branding" href="index.html">
-                        <img src="{{asset('assets/Client/img/logo.svg')}}" alt="Logo">
+                        <img src="{{ asset('assets/Client/img/logo.svg') }}" alt="Logo">
                     </a>
                 </div>
                 <div class="cs_main_header_center">
                     <div class="cs_nav cs_medium">
                         <ul class="cs_nav_list">
                             <li>
-                                <a href="/">Home</a>
+                                <a href="{{ route('home') }}">Home</a>
                             </li>
                             <li>
-                                <a href="/shop">Product</a>
+                                <a href="{{ route('shop.index') }}">Product</a>
                             </li>
                             <li><a href="blog.html">Blog</a></li>
-                            <li class="menu-item-has-children">
-                                <a href="">Pages</a>
-                                <ul>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="blog_details.html">Blog Details</a></li>
-                                    <li><a href="/cart">Cart</a></li>
-                                    <li><a href="/checkout">Checkout</a></li>
-                                    <li><a href="success.html">Success</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                </ul>
-                            </li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
@@ -73,10 +62,36 @@
                         <button type="button" class="cs_action_icon cs_header_search_btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
-                        <a href="#" class="cs_action_icon cs_modal_btn">
-                            <i class="fa-regular fa-circle-user"></i>
-                        </a>
-                        <a href="shop.html" class="cs_action_icon">
+                        @if (Auth::check())
+                            <div class="dropdown">
+                                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle"
+                                    id="dropdownMenuButton" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fa-regular fa-circle-user"></i>
+                                </a>
+
+                                <!-- Dropdown menu -->
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="">Thông tin cá
+                                            nhân</a></li>
+                                    <li><a class="dropdown-item" href="">Đơn hàng</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <form action="{{ route('customer.logout') }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item">Đăng xuất</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        @else
+                            <a href="{{ route('customer.showAuthForm') }}" class="cs_action_icon cs_modal_btn">
+                                <i class="fa-regular fa-circle-user"></i>
+                            </a>
+                        @endif
+                        <a href="{{ route('cart.index') }}" class="cs_action_icon">
                             <span>
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -109,8 +124,7 @@
             <div class="cs_header_search_in">
                 <div class="cs_hero_search_heading">
                     <h3>What are you looking for?</h3>
-                    <button class="cs_header_search_close" type="button"><i
-                            class="fa-solid fa-xmark"></i></button>
+                    <button class="cs_header_search_close" type="button"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <form action="#" class="cs_header_search_form">
                     <input type="text" placeholder="Search...">

@@ -18,6 +18,7 @@ class ColorFactory extends Factory
     {
         return [
             'color_name' => $this->faker->colorName,
+            'color' => $this->faker->hexColor,
             // Add more fields as needed
         ];
     }

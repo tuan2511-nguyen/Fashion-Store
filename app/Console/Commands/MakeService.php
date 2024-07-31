@@ -50,7 +50,7 @@ class MakeService extends Command
 
     protected function createInterface($name)
     {
-        $path = app_path("Services/Interfaces/{$name}ServiceInterface.php");
+        $path = app_path("Interfaces/{$name}ServiceInterface.php");
 
         if ($this->files->exists($path)) {
             $this->error("Interface {$name}ServiceInterface already exists!");

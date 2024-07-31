@@ -31,6 +31,7 @@
     <!-- Theme Styles -->
     <link href="{{ asset('assets/Admin/css/main.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/Admin/css/custom.css') }}" rel="stylesheet">
+    <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/Admin/images/neptune.png') }}" />
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/Admin/images/neptune.png') }}" />
@@ -69,8 +70,7 @@
     <script src="{{ asset('assets/Admin/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/Admin/js/pages/datatables.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
+    <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,10 +17,10 @@ class OrderFactory extends Factory
      */
     public function definition(): array
     {
-        $customerIds = Customer::pluck('id')->toArray();
+        $userId = User::pluck('id')->toArray();
 
         return [
-            'customer_id' => $this->faker->randomElement($customerIds),
+            'user_id' => $this->faker->randomElement($userId),
             'order_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'total_amount' => $this->faker->randomFloat(2, 50, 500),
             'billing_name' => $this->faker->name,

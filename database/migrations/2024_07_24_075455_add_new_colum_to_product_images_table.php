@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customers', function (Blueprint $table) {
-            $table->bigIncrements('id'); // Primary key
-            $table->string('customer_name');
-            $table->string('customer_email')->unique();
-            $table->string('customer_password');
-            $table->timestamps();
+        Schema::table('product_images', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customers');
+        Schema::table('product_images', function (Blueprint $table) {
+            //
+        });
     }
 };

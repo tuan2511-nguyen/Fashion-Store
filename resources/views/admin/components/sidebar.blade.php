@@ -28,13 +28,14 @@
                         class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                 <ul class="sub-menu">
                     <li>
+                        <a href="{{ route('products.index') }}">Products</a>
                         <a href="#">Properties<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="sign-in.html">Colors</a>
+                                <a href="{{ route('colors.index') }}">Colors</a>
                             </li>
                             <li>
-                                <a href="sign-up.html">Sizes</a>
+                                <a href="{{ route('sizes.index') }}">Sizes</a>
                             </li>
                         </ul>
                     </li>

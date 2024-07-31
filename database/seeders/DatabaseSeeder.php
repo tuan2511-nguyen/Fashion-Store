@@ -15,17 +15,16 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategoriesSeeder::class,
             ProductsSeeder::class,
-            CustomersSeeder::class,
             SizesSeeder::class,
             ColorsSeeder::class,
             ProductVariantsSeeder::class, 
+            UsersSeeder::class,
             OrdersSeeder::class, 
             OrderDetailsSeeder::class,
             CouponsSeeder::class,
             UserCouponsSeeder::class,
             CommentsSeeder::class,
-            AdminsSeeder::class,
-            UsersSeeder::class
+            ProductImagesSeeder::class
         ]);
     }
 }

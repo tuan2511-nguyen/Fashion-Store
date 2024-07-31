@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Coupon;
-use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,11 +18,11 @@ class UserCouponFactory extends Factory
      */
     public function definition(): array
     {
-        $customerIds = Customer::pluck('id')->toArray();
+        $userId = User::pluck('id')->toArray();
         $couponIds = Coupon::pluck('id')->toArray();
 
         return [
-            'customer_id' => $this->faker->randomElement($customerIds),
+            'user_id' => $this->faker->randomElement($userId),
             'coupon_id' => $this->faker->randomElement($couponIds),
             'discount_value' => $this->faker->randomFloat(2, 1, 10),
             'used_date' => $this->faker->dateTimeBetween('-1 month', 'now'),

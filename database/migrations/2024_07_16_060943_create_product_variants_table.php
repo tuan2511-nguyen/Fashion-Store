@@ -20,7 +20,6 @@ return new class extends Migration
             $table->integer('stock_quantity');
             $table->timestamps();
             
-            // Setting up foreign key constraints
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('size_id')->references('id')->on('sizes')->onDelete('cascade');
             $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');

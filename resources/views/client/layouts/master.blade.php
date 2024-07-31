@@ -44,6 +44,7 @@
     <script src="{{ asset('assets/Client/js/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('assets/Client/js/animated-headline.js') }}"></script>
     <script src="{{ asset('assets/Client/js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

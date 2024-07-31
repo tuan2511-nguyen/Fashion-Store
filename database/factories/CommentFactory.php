@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Customer;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,11 +18,11 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
-        $customerIds = Customer::pluck('id')->toArray();
+        $userId = User::pluck('id')->toArray();
         $productIds = Product::pluck('id')->toArray();
 
         return [
-            'customer_id' => $this->faker->randomElement($customerIds),
+            'user_id' => $this->faker->randomElement($userId),
             'product_id' => $this->faker->randomElement($productIds),
             'rating' => $this->faker->numberBetween(1, 5),
             'comments'=>$this->faker->paragraph,

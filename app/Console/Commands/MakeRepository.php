@@ -50,7 +50,7 @@ class MakeRepository extends Command
 
     protected function createInterface($name)
     {
-        $path = app_path("Repositories/Interfaces/{$name}Interface.php");
+        $path = app_path("Interfaces/{$name}Interface.php");
 
         if ($this->files->exists($path)) {
             $this->error("Interface {$name}Interface already exists!");
