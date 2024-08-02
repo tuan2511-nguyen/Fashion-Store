@@ -39,7 +39,7 @@
         <div class="container-fluid">
             <div class="cs_main_header_in">
                 <div class="cs_main_header_left">
-                    <a class="cs_site_branding" href="index.html">
+                    <a class="cs_site_branding" href="{{ route('home') }}">
                         <img src="{{ asset('assets/Client/img/logo.svg') }}" alt="Logo">
                     </a>
                 </div>
@@ -72,9 +72,9 @@
 
                                 <!-- Dropdown menu -->
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="">Thông tin cá
+                                    <li><a class="dropdown-item" href="{{ route('profile.show') }}">Thông tin cá
                                             nhân</a></li>
-                                    <li><a class="dropdown-item" href="">Đơn hàng</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('order.index') }}">Đơn hàng</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

@@ -94,19 +94,17 @@
                                     <div class="cs_product_thumb position-relative">
                                         <img src="{{ $product->images->isNotEmpty() ? Storage::url($product->images->first()->image_url) : 'default-image.jpg' }}"
                                             alt="Product Image" class="w-100" />
-                                        <div
+                                        {{-- <div
                                             class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">
                                             -25%
-                                        </div>
+                                        </div> --}}
                                         <div class="cs_cart_badge position-absolute">
                                             </a>
-                                            <a href="/product" class="cs_cart_icon cs_accent_bg cs_white_color">
+                                            <a href="{{ route('product.detail', $product->id) }}"
+                                                class="cs_cart_icon cs_accent_bg cs_white_color">
                                                 <i class="fa-regular fa-eye"></i>
                                             </a>
                                         </div>
-                                        <a href="cart.html"
-                                            class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                            To Cart</a>
                                     </div>
                                     <div class="cs_product_info text-center">
                                         <h3 class="cs_product_title cs_fs_21 cs_medium">
@@ -139,11 +137,6 @@
                                         <p class="cs_product_desc">
                                             {{ $product->product_description }}
                                         </p>
-                                        <div class="cs_action_btns">
-                                            <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Add
-                                                to
-                                                Cart</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

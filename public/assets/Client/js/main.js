@@ -403,14 +403,13 @@
             $("#slider_range").slider({
                 range: true,
                 min: 0,
-                max: 10000000, // Chỉnh giá trị max phù hợp
-                values: [50000, 10000000],
+                max: 1000000, // Chỉnh giá trị max phù hợp
+                values: [50000, 200000],
                 slide: function (event, ui) {
                     console.log("Đang kéo: ", ui.values);
                     $("#amount").val(
-                        "Giá: VND " +
                             ui.values[0] +
-                            ".00 - VND" +
+                            ".00 -" +
                             ui.values[1] +
                             ".00"
                     );
@@ -422,9 +421,8 @@
         if ($.exists("#amount")) {
             console.log("Đặt giá trị ban đầu cho amount");
             $("#amount").val(
-                "Giá: VND " +
                     $("#slider_range").slider("values", 0) +
-                    ".00 - VND" +
+                    ".00 - " +
                     $("#slider_range").slider("values", 1) +
                     ".00"
             );

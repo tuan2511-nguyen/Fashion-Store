@@ -16,7 +16,8 @@ class HomeController extends Controller
         $categories = Category::all();
         $productTake3 = Product::with('images')->latest()->take(3)->get();
         $productRandom5 = Product::with(['images', 'variants'])->inRandomOrder()->take(5)->get();
+        $latestProducts  = Product::with('images')->latest()->take(5)->get();
         $images = ProductImage::latest()->take(6)->get(); 
-        return view('client.pages.home', compact('categories', 'productTake3', 'productRandom5', 'images'));
+        return view('client.pages.home', compact('categories', 'productTake3', 'productRandom5', 'images', 'latestProducts'));
     }
 }

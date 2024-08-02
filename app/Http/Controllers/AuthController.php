@@ -24,13 +24,13 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            if ($user->role === 'admin') {
-                return redirect()->route('dashboard.index')->with('success', 'Đăng nhập thành công!');
-            } else {
-                Auth::logout();
-                return redirect()->route('auth.admin')->with('error', 'Bạn không có quyền truy cập trang này!');
-            }
+            // $user = Auth::user();
+            // if ($user->role === 'admin') {
+            return redirect()->route('dashboard.index')->with('success', 'Đăng nhập thành công!');
+            // } else {
+            //     Auth::logout();
+            //     return redirect()->route('auth.admin')->with('error', 'Bạn không có quyền truy cập trang này!');
+            // }
         }
 
         return redirect()->route('auth.admin')->with('error', 'Thông tin mật khẩu không chính xác!');

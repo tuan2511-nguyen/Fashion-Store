@@ -26,28 +26,25 @@
 
                             <!-- Hiển thị hình ảnh sản phẩm -->
                             <div id="productCarousel" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    @foreach ($product->images as $image)
-                                        <li data-target="#productCarousel" data-slide-to="{{ $loop->index }}"
-                                            class="{{ $loop->first ? 'active' : '' }}"></li>
-                                    @endforeach
-                                </ol>
-                                <div class="carousel-inner">
-                                    @foreach ($product->images as $image)
-                                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                            <img src="{{ asset('storage/' . $image->image_url) }}" class="d-block w-100"
-                                                alt="Product Image">
-                                        </div>
-                                    @endforeach
+                                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @foreach ($product->images as $image)
+                                            <div class="carousel-item active">
+                                                <img src="{{ asset('storage/' . $image->image_url) }}" class="d-block w-100" alt="...">
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
                                 </div>
-                                <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
                             </div>
 
                             <!-- Hiển thị biến thể màu -->

@@ -22,6 +22,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
@@ -50,4 +51,11 @@ class User extends Authenticatable
         // Nếu bạn lưu vai trò dưới dạng danh sách hoặc nhiều vai trò
         // return in_array($role, explode(',', $this->roles));
     }
+    public function comments()
+    {
+        return $this->hasMany(Review::class);
+    }
+    public function order()
+    {
+        return $this->hasMany(Order::class);}
 }

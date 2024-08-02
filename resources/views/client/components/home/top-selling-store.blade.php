@@ -30,7 +30,7 @@
                                     <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
                                         <i class="fa-regular fa-heart"></i>
                                     </a>
-                                    <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
+                                    <a href="{{ route('product.detail', $product->id) }}" class="cs_cart_icon cs_accent_bg cs_white_color">
                                         <i class="fa-regular fa-eye"></i>
                                     </a>
                                 </div>
@@ -40,7 +40,7 @@
                             </div>
                             <div class="cs_product_info text-center">
                                 <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                    <a href="product_details.html">{{ $product->product_name }}</a>
+                                    <a href="{{ route('product.detail', $product->id) }}">{{ $product->product_name }}</a>
                                 </h3>
                                 @if ($product->variants->isNotEmpty())
                                     <p class="card-text"><strong>Price:</strong>

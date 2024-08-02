@@ -6,6 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title> @yield('title') </title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/Client/img/FAVICON.svg') }}">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('assets/Client/css/animated-headline.css') }}">
     <!-- Custom css -->
     <link rel="stylesheet" href="{{ asset('assets/Client/css/style.css') }}">
+   
 </head>
 
 <body>
@@ -38,6 +40,7 @@
     </div>
     <!-- End scroll up button -->
     <!-- All script files -->
+    
     <script src="{{ asset('assets/Client/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('assets/Client/js/jquery.slick.min.js') }}"></script>
     <script src="{{ asset('assets/Client/js/isotope.pkg.min.js') }}"></script>

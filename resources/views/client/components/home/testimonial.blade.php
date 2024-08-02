@@ -18,10 +18,10 @@
                                 destination. Highly recommend!</blockquote>
                             <div class="cs_testimonial_user">
                                 <div class="cs_avatar_thumb">
-                                    <img src="{{ asset('assets/Client/img/user.png') }}" alt="Avatar">
+                                    <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2020/4/7/796660/Ronaldo.jpg" alt="Avatar">
                                 </div>
                                 <h4 class="cs_avatar_title cs_fs_21 cs_semibold mb-0">Bonal Ahmad</h4>
-                                <p class="cs_avatar_subtitle mb-0">From London</p>
+                                <p class="cs_avatar_subtitle mb-0">From TheLiems</p>
                             </div>
                         </div>
                     </div>
@@ -33,10 +33,10 @@
                                 destination. Highly recommend!</blockquote>
                             <div class="cs_testimonial_user">
                                 <div class="cs_avatar_thumb">
-                                    <img src="{{ asset('assets/Client/img/user2.png') }}" alt="Avatar">
+                                    <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/10/30/969136/Cristiano-Ronaldo4.jpg" alt="Avatar">
                                 </div>
                                 <h4 class="cs_avatar_title cs_fs_21 cs_semibold mb-0">Jhon Doe</h4>
-                                <p class="cs_avatar_subtitle mb-0">From UK</p>
+                                <p class="cs_avatar_subtitle mb-0">From TheLiems</p>
                             </div>
                         </div>
                     </div>
@@ -48,10 +48,10 @@
                                 destination. Highly recommend!</blockquote>
                             <div class="cs_testimonial_user">
                                 <div class="cs_avatar_thumb">
-                                    <img src="{{ asset('assets/Client/img/user3.png') }}" alt="Avatar">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRU5KK-qHSSBjyUbOYWT3ydeQwezEF7xFpZQ&s" alt="Avatar">
                                 </div>
                                 <h4 class="cs_avatar_title cs_fs_21 cs_semibold mb-0">Kalio Hokeo</h4>
-                                <p class="cs_avatar_subtitle mb-0">From London</p>
+                                <p class="cs_avatar_subtitle mb-0">From TheLiems</p>
                             </div>
                         </div>
                     </div>

@@ -3,9 +3,9 @@
         <a href="index.html" class="logo-icon"><span class="logo-text">Neptune</span></a>
         <div class="sidebar-user-switcher user-activity-online">
             <a href="#">
-                <img src="../../assets/images/avatars/avatar.png">
+                <img src="{{ asset('storage/avatars/' . Auth::user()->avatar) }}">
                 <span class="activity-indicator"></span>
-                <span class="user-info-text">Tuandzvcl<br><span class="user-state-info">Đang nóng đầu</span></span>
+                <span class="user-info-text">{{ Auth::user()->name }}<br><span class="user-state-info">Đang nóng đầu</span></span>
             </a>
         </div>
     </div>
@@ -42,15 +42,18 @@
                 </ul>
             </li>
             <li>
-                <a href="calendar.html"><i class="material-icons-two-tone">account_circle</i>Customers
+                <a href="{{ route('customers.index') }}"><i class="material-icons-two-tone">account_circle</i>Customers
                     {{-- <span class="badge rounded-pill badge-success float-end">14</span> --}}
                 </a>
             </li>
             <li>
-                <a href="todo.html"><i class="material-icons-two-tone">local_play</i>Coupons</a>
+                <a href="{{ route('coupons.index') }}"><i class="material-icons-two-tone">local_play</i>Coupons</a>
             </li>
             <li>
-                <a href="todo.html"><i class="material-icons-two-tone">chat</i>Comments</a>
+                <a href="{{ route('reviews.index') }}"><i class="material-icons-two-tone">chat</i>Comments</a>
+            </li>
+            <li>
+                <a href="{{ route('orders.index') }}"><i class="material-icons-two-tone">receipt_long</i>Order</a>
             </li>
         </ul>
     </div>

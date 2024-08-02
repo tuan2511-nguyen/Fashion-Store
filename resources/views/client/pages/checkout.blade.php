@@ -1,70 +1,76 @@
 @extends('client.layouts.master')
 
 @section('title')
-    Products Detail
+    Checkout
 @endsection
 
 @section('main')
-    <form action="" method="POST">
+    <form action="{{ route('checkout.store') }}" method="POST">
+        @csrf
         <div class="container">
             <div class="row">
                 <div class="col-xl-7">
-                    <p class="cs_checkout-alert m-0">Have a coupon? <a href="">Click here to enter your code</a></p>
                     <div class="cs_height_40 cs_height_lg_40"></div>
                     <h2 class="cs_checkout-title cs_fs_28">Billing Details</h2>
                     <div class="cs_height_45 cs_height_lg_40"></div>
                     <div class="row">
-                        <div class="col-lg-6">
-                            <label class="cs_shop-label">First Name *</label>
-                            <input type="text" class="cs_shop-input" name="first_name">
-                        </div>
-                        <div class="col-lg-6">
-                            <label class="cs_shop-label">Last Name *</label>
-                            <input type="text" class="cs_shop-input" name="last_name">
-                        </div>
+                        <!-- Example field -->
                         <div class="col-lg-12">
-                            <label class="cs_shop-label">Company name (optional)</label>
-                            <input type="text" class="cs_shop-input" name="company_name">
+                            <label class="cs_shop-label">Name *</label>
+                            <input type="text" class="cs_shop-input" name="billing_name">
                         </div>
+                        @if ($errors->has('billing_name'))
+                            <span class="text-danger">{{ $errors->first('billing_name') }}</span>
+                        @endif
+
+
                         <div class="col-lg-12">
-                            <label class="cs_shop-label">Country / Region *</label>
-                            <select class="cs_shop-input" name="country">
-                                <option value="States">United States (US)</option>
-                                <option value="Kingdom">United Kingdom</option>
-                                <option value="Kanada">Kanada</option>
+                            <label class="cs_shop-label">Province *</label>
+                            <select class="cs_shop-input" id="city" name="province">
+                                <option value="" selected>Chọn tỉnh thành</option>
                             </select>
                         </div>
+                        @if ($errors->has('province'))
+                            <span class="text-danger">{{ $errors->first('province') }}</span>
+                        @endif
+
+
                         <div class="col-lg-12">
-                            <label class="cs_shop-label">Street address *</label>
-                            <input type="text" class="cs_shop-input" name="street_address"
-                                placeholder="House number and street name">
-                            <input type="text" class="cs_shop-input" name="apartment"
-                                placeholder="Apartment, suite, unit, etc (optional)">
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="cs_shop-label">Town / City *</label>
-                            <input type="text" class="cs_shop-input" name="city">
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="cs_shop-label">State *</label>
-                            <select class="cs_shop-input" name="state">
-                                <option value="California">California</option>
-                                <option value="Gercy">New Gercy</option>
-                                <option value="Daiking">Daiking</option>
+                            <label class="cs_shop-label">District *</label>
+                            <select class="cs_shop-input" id="district" name="district">
+                                <option value="" selected>Chọn quận huyện</option>
                             </select>
                         </div>
+                        @if ($errors->has('district'))
+                            <span class="text-danger">{{ $errors->first('district') }}</span>
+                        @endif
+
+
                         <div class="col-lg-12">
-                            <label class="cs_shop-label">ZIP Code *</label>
-                            <input type="text" class="cs_shop-input" name="zip_code">
+                            <label class="cs_shop-label">Ward *</label>
+                            <select class="cs_shop-input" id="ward" name="ward">
+                                <option value="" selected>Chọn phường xã</option>
+                            </select>
                         </div>
+                        @if ($errors->has('ward'))
+                            <span class="text-danger">{{ $errors->first('ward') }}</span>
+                        @endif
+
+
+                        <div class="col-lg-12">
+                            <label class="cs_shop-label">Address</label>
+                            <input type="text" class="cs_shop-input" name="address">
+                        </div>
+                        @if ($errors->has('address'))
+                            <span class="text-danger">{{ $errors->first('address') }}</span>
+                        @endif
                         <div class="col-lg-12">
                             <label class="cs_shop-label">Phone *</label>
                             <input type="text" class="cs_shop-input" name="phone">
                         </div>
-                        <div class="col-lg-12">
-                            <label class="cs_shop-label">Email address *</label>
-                            <input type="text" class="cs_shop-input" name="email">
-                        </div>
+                        @if ($errors->has('phone'))
+                            <span class="text-danger">{{ $errors->first('phone') }}</span>
+                        @endif
                     </div>
                     <div class="cs_height_45 cs_height_lg_45"></div>
                     <h2 class="cs_checkout-title">Additional information</h2>
@@ -83,30 +89,30 @@
                                         <td>Products</td>
                                         <td class="text-end">Amount</td>
                                     </tr>
-                                    <tr>
-                                        <td>Awesome men T-shirt x 1</td>
-                                        <td class="text-end">$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Future AI robot toy x 1</td>
-                                        <td class="text-end">$550.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hemp seed shampoo x 1</td>
-                                        <td class="text-end">$35.00</td>
-                                    </tr>
+                                    @foreach ($cart as $item)
+                                        <tr>
+                                            <td>{{ $item['name'] }} x {{ $item['quantity'] }}</td>
+                                            <td class="text-end">VND {{ number_format($item['total'], 2) }}</td>
+                                        </tr>
+                                    @endforeach
                                     <tr>
                                         <td class="cs_semi_bold">Subtotal</td>
-                                        <td class="text-end">$605.00</td>
+                                        <td class="text-end">VND {{ number_format($subtotal, 2) }}</td>
                                     </tr>
+                                    @if (session('cart_discount'))
+                                        <tr>
+                                            <td class="cs_semi_bold">Discount ({{ session('cart_discount') }}%)</td>
+                                            <td class="text-end">- VND
+                                                {{ number_format(session('cart_discount_amount'), 2) }}</td>
+                                        </tr>
+                                    @endif
                                     <tr class="cs_semi_bold">
                                         <td>Total</td>
-                                        <td class="text-end">$605.00</td>
+                                        <td class="text-end">VND {{ number_format(session('cart_total', $subtotal), 2) }}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="cs_height_30 cs_height_lg_30"></div>
-                            <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium w-100">Place Order</button>
                         </div>
                         <div class="cs_height_50 cs_height_lg_30"></div>
                         <div class="cs_shop-card">
@@ -116,13 +122,24 @@
                                     <tr>
                                         <td>
                                             <div class="form-check cs_fs_16">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckDefault" checked="">
+                                                <input class="form-check-input" type="radio" name="payment_method"
+                                                    value="cod" id="flexCheckDefault" checked>
                                                 <label class="form-check-label m-0 cs_semi_bold" for="flexCheckDefault">
                                                     Cash on delivery
                                                 </label>
                                             </div>
-                                            <p class="m-0 cs_payment_text">Pay with cash upon delivery.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check cs_fs_16">
+                                                <input class="form-check-input" type="radio" name="payment_method"
+                                                    value="bank_transfer" id="flexCheckBankTransfer">
+                                                <label class="form-check-label m-0 cs_semi_bold"
+                                                    for="flexCheckBankTransfer">
+                                                    Bank Transfer
+                                                </label>
+                                            </div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -130,9 +147,9 @@
                             <div class="cs_height_20 cs_height_lg_20"></div>
                             <p class="m-0 cs_payment_text">Your personal data will be used to process your order, support
                                 your experience throughout this website, and for other purposes described in our <a
-                                    href="">privacy policy</a>.</p>
+                                    href="#">privacy policy</a>.</p>
                             <div class="cs_height_20 cs_height_lg_20"></div>
-                            <button type="button" class="cs_btn cs_style_1 cs_fs_16 cs_medium w-100">Pay Now</button>
+                            <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium w-100">Place Order</button>
                         </div>
                         <div class="cs_height_30 cs_height_lg_30"></div>
                     </div>
@@ -143,3 +160,58 @@
     <div class="cs_height_90 cs_height_lg_50"></div>
     <hr>
 @endsection
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var citis = document.getElementById("city");
+        var district = document.getElementById("district");
+        var ward = document.getElementById("ward");
+
+        var Parameter = {
+            url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+            method: "GET",
+            responseType: "json",
+        };
+
+        axios(Parameter)
+            .then(function(response) {
+                renderCity(response.data);
+            })
+            .catch(function(error) {
+                console.error("Error fetching data: ", error);
+            });
+
+        function renderCity(data) {
+            data.forEach(function(x) {
+                citis.options[citis.options.length] = new Option(x.Name, x.Name); // Use name as value
+            });
+
+            citis.addEventListener("change", function() {
+                district.length = 1; // Clear existing options
+                ward.length = 1; // Clear existing options
+                if (this.value) {
+                    var result = data.find(n => n.Name === this.value);
+                    if (result) {
+                        result.Districts.forEach(function(k) {
+                            district.options[district.options.length] = new Option(k.Name, k
+                                .Name); // Use name as value
+                        });
+                    }
+                }
+            });
+
+            district.addEventListener("change", function() {
+                ward.length = 1; // Clear existing options
+                var dataCity = data.find(n => n.Name === citis.value);
+                if (this.value) {
+                    var dataWards = dataCity ? dataCity.Districts.find(n => n.Name === this.value)
+                        .Wards : [];
+                    dataWards.forEach(function(w) {
+                        ward.options[ward.options.length] = new Option(w.Name, w
+                            .Name); // Use name as value
+                    });
+                }
+            });
+        }
+    });
+</script>

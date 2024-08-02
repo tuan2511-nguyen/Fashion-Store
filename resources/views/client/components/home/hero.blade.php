@@ -8,7 +8,7 @@
                         <div class="cs_hero_text">
                             <h1 class="cs_heto_title cs_fs_67 cs_bold">{{ $product->product_name }}</h1>
                             <p class="cs_heto_subtitle">{{ $product->product_description }}</p>
-                            <a href="shop.html" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Shop Now</a>
+                            <a href="{{ route('product.detail', $product->id) }}" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Shop Now</a>
                         </div>
                         <div class="cs_hero_thumb cs_bg_filed"
                             data-src="{{ $product->images->isNotEmpty() ? Storage::url($product->images->first()->image_url) : 'default-image.jpg' }}">

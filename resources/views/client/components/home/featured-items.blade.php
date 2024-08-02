@@ -27,7 +27,7 @@
                                             class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">
                                             -25%</div> --}}
                                             <div class="cs_cart_badge position-absolute">
-                                                <a href="product_details.html"
+                                                <a href="{{ route('product.detail', $product->id) }}"
                                                     class="cs_cart_icon cs_accent_bg cs_white_color">
                                                     <i class="fa-regular fa-eye"></i>
                                                 </a>
@@ -38,7 +38,7 @@
                                         </div>
                                         <div class="cs_product_info text-center">
                                             <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                                <a href="product_details.html">{{ $product->product_name }}</a>
+                                                <a href="{{ route('product.detail', $product->id) }}">{{ $product->product_name }}</a>
                                             </h3>
                                             @if ($product->variants->isNotEmpty())
                                                 <p class="card-text"><strong>Price:</strong>

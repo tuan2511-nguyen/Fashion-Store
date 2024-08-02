@@ -27,4 +27,13 @@ class Product extends Model
     {
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'product_id', 'id');
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        return $this->reviews()->avg('rating');
+    }
 }

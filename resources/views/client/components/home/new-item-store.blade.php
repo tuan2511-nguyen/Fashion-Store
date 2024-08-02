@@ -20,126 +20,33 @@
             data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2" data-md-slides="2"
             data-lg-slides="3" data-add-slides="4">
             <div class="cs_slider_wrapper">
-                <div class="slick_slide_in">
-                    <div class="cs_product cs_style_1">
-                        <div class="cs_product_thumb position-relative">
-                            <img src="{{ asset('assets/Client/img/product4.png') }}" alt="Product Image">
-                            <div class="cs_cart_badge position-absolute">
-                                <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                                <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                    <i class="fa-regular fa-eye"></i>
-                                </a>
+                @foreach ($latestProducts as $product)
+                    <div class="slick_slide_in">
+                        <div class="cs_product cs_style_1">
+                            <div class="cs_product_thumb position-relative">
+                                <img src="{{ $product->images->isNotEmpty() ? Storage::url($product->images->first()->image_url) : 'default-image.jpg' }}"
+                                    alt="Product Image">
+                                <div class="cs_cart_badge position-absolute">
+                                    <a href="{{ route('product.detail', $product->id) }}" class="cs_cart_icon cs_accent_bg cs_white_color">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <a href="cart.html"
-                                class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add
-                                To Cart</a>
-                        </div>
-                        <div class="cs_product_info text-center">
-                            <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                <a href="product_details.html">Pure cotton women Skhirt</a>
-                            </h3>
-                            <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$250.00</p>
+                            <div class="cs_product_info text-center">
+                                <h3 class="cs_product_title cs_fs_21 cs_medium">
+                                    <a href="{{ route('product.detail', $product->id) }}">{{ $product->product_name }}</a>
+                                </h3>
+                                @if ($product->variants->isNotEmpty())
+                                    <p class="card-text"><strong>Price:</strong>
+                                        {{ number_format($product->variants->first()->price, 0, ',', '.') }}
+                                        VND</p>
+                                @else
+                                    <p class="card-text"><strong>Price:</strong> Not available</p>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="slick_slide_in">
-                    <div class="cs_product cs_style_1">
-                        <div class="cs_product_thumb position-relative">
-                            <img src="{{ asset('assets/Client/img/product5.png') }}" alt="Product Image">
-                            <div class="cs_cart_badge position-absolute">
-                                <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                                <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                    <i class="fa-regular fa-eye"></i>
-                                </a>
-                            </div>
-                            <a href="cart.html"
-                                class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
-                                Add To Cart</a>
-                        </div>
-                        <div class="cs_product_info text-center">
-                            <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                <a href="product_details.html">Satin silk sleeping were</a>
-                            </h3>
-                            <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$220.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="slick_slide_in">
-                    <div class="cs_product cs_style_1">
-                        <div class="cs_product_thumb position-relative">
-                            <img src="{{ asset('assets/Client/img/product6.png') }}" alt="Product Image">
-                            <div class="cs_cart_badge position-absolute">
-                                <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                                <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                    <i class="fa-regular fa-eye"></i>
-                                </a>
-                            </div>
-                            <a href="cart.html"
-                                class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
-                                Add To Cart</a>
-                        </div>
-                        <div class="cs_product_info text-center">
-                            <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                <a href="product_details.html">Top gorgeous woman dress</a>
-                            </h3>
-                            <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$350.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="slick_slide_in">
-                    <div class="cs_product cs_style_1">
-                        <div class="cs_product_thumb position-relative">
-                            <img src="{{ asset('assets/Client/img/product7.png') }}" alt="Product Image">
-                            <div class="cs_cart_badge position-absolute">
-                                <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                                <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                    <i class="fa-regular fa-eye"></i>
-                                </a>
-                            </div>
-                            <a href="cart.html"
-                                class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
-                                Add To Cart</a>
-                        </div>
-                        <div class="cs_product_info text-center">
-                            <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                <a href="product_details.html">Velvet touch women tops</a>
-                            </h3>
-                            <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$250.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="slick_slide_in">
-                    <div class="cs_product cs_style_1">
-                        <div class="cs_product_thumb position-relative">
-                            <img src="{{ asset('assets/Client/img/product26.png') }}" alt="Product Image">
-                            <div class="cs_cart_badge position-absolute">
-                                <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                                <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                                    <i class="fa-regular fa-eye"></i>
-                                </a>
-                            </div>
-                            <a href="cart.html"
-                                class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
-                                Add To Cart</a>
-                        </div>
-                        <div class="cs_product_info text-center">
-                            <h3 class="cs_product_title cs_fs_21 cs_medium">
-                                <a href="product_details.html">Men casual check shirt</a>
-                            </h3>
-                            <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$350.00</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <div class="cs_pagination cs_style_2 cs_hide_desktop"></div>
