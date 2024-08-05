@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\CustomerReviewController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\CheckOutController;
 use App\Http\Controllers\Client\HomeController;
@@ -41,6 +43,13 @@ Route::get('auth',                         [RegisterController::class, 'showAuth
 Route::post('signin',                      [RegisterController::class, 'login'])->name('customer.login');
 Route::post('register',                    [RegisterController::class, 'register'])->name('customer.register');
 Route::post('signout',                     [RegisterController::class, 'logout'])->name('customer.logout');
+
+Route::get('password/reset',               [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email',              [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}',       [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset',              [ResetPasswordController::class, 'reset'])->name('password.update');
+
+
 
 Route::get('/profile',                     [UserProfileController::class, 'show'])->name('profile.show')->middleware(StoreUrlBeforeLogin::class);
 Route::post('/profile/avatar',             [UserProfileController::class, 'updateAvatar'])->name('profile.avatar.update')->middleware(StoreUrlBeforeLogin::class);
@@ -127,13 +136,13 @@ Route::prefix('admin')->middleware('role:admin')->group(function () {
 
 Route::prefix('admin')->middleware('role:admin')->group(function () {
     Route::resource('customers',                            CustomerController::class)->except([
-        'show','store'
+        'show', 'store'
     ]);
     Route::resource('reviews',                              CustomerReviewController::class)->except([
-        'show','edit','store','update'
+        'show', 'edit', 'store', 'update'
     ]);
     Route::resource('orders',                               BillController::class)->except([
-        'create','edit'
+        'create', 'edit'
     ]);
     Route::resource('coupons',                              CouponController::class);
 });

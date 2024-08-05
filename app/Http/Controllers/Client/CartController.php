@@ -126,11 +126,11 @@ class CartController extends Controller
         }
 
         // Tính toán giảm giá
-        $discount = $coupon->discount_value; // Giảm giá theo phần trăm
+        $discount = $coupon->discount_value;
         $cart = session()->get('cart', []);
         $subtotal = array_sum(array_column($cart, 'total'));
 
-        // Tính tổng tiền sau khi giảm giá
+
         $discountAmount = $subtotal * ($discount / 100);
         $total = $subtotal - $discountAmount;
 

@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="password" id="loginPassword" class="form-control" name="password" required
+                        <input type="password" id="loginPassword" class="form-control" name="password" 
                             autocomplete="current-password" />
                         <label class="form-label" for="loginPassword">Password</label>
                     </div>
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 d-flex justify-content-center">
-                            {{-- <a href="{{ route('password.request') }}">Forgot password?</a> --}}
+                            <a href="{{ route('password.request') }}">Forgot password?</a>
                         </div>
                     </div>
 
@@ -126,31 +126,31 @@
 
                     <div class="form-outline mb-4">
                         <input type="text" id="registerName" class="form-control" name="name"
-                            value="{{ old('name') }}" required autocomplete="name" autofocus />
+                            value="{{ old('name') }}"  autocomplete="name" autofocus />
                         <label class="form-label" for="registerName">Name</label>
                     </div>
 
                     <div class="form-outline mb-4">
                         <input type="text" id="registerUsername" class="form-control" name="username"
-                            value="{{ old('username') }}" required autocomplete="username" />
+                            value="{{ old('username') }}"  autocomplete="username" />
                         <label class="form-label" for="registerUsername">Username</label>
                     </div>
 
                     <div class="form-outline mb-4">
                         <input type="email" id="registerEmail" class="form-control" name="email"
-                            value="{{ old('email') }}" required autocomplete="email" />
+                            value="{{ old('email') }}"  autocomplete="email" />
                         <label class="form-label" for="registerEmail">Email</label>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="password" id="registerPassword" class="form-control" name="password" required
+                        <input type="password" id="registerPassword" class="form-control" name="password" 
                             autocomplete="new-password" />
                         <label class="form-label" for="registerPassword">Password</label>
                     </div>
 
                     <div class="form-outline mb-4">
                         <input type="password" id="registerRepeatPassword" class="form-control"
-                            name="password_confirmation" required autocomplete="new-password" />
+                            name="password_confirmation"  autocomplete="new-password" />
                         <label class="form-label" for="registerRepeatPassword">Repeat password</label>
                     </div>
 
