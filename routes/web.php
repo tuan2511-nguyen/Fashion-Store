@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\CheckOutController;
 use App\Http\Controllers\Client\HomeController;
@@ -144,5 +145,10 @@ Route::prefix('admin')->middleware('role:admin')->group(function () {
     Route::resource('orders',                               BillController::class)->except([
         'create', 'edit'
     ]);
-    Route::resource('coupons',                              CouponController::class);
+    Route::resource('coupons',                              CouponController::class)->except(
+        'show'
+    );
+    Route::resource('banners',                               BannerController::class)->except([
+        'show'
+    ]);
 });

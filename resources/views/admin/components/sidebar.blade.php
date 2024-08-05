@@ -53,7 +53,10 @@
                 <a href="{{ route('reviews.index') }}"><i class="material-icons-two-tone">chat</i>Comments</a>
             </li>
             <li>
-                <a href="{{ route('orders.index') }}"><i class="material-icons-two-tone">receipt_long</i>Order</a>
+                <a href="{{ route('orders.index') }}"><i class="material-icons-two-tone">receipt_long</i>Orders</a>
+            </li>
+            <li>
+                <a href="{{ route('banners.index') }}"><i class="material-icons-two-tone">ad_units</i>Banners</a>
             </li>
         </ul>
     </div>
